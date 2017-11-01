@@ -17,8 +17,8 @@ public partial class Page1 : System.Web.UI.Page
         {
            
             string str = HttpContext.Current.Session["source"].ToString();
-            //if(oreo.Values["dest"] != null)
-              //  str += oreo.Values["dest"].ToString();
+            if(oreo.Values["dest"] != null)
+                str += oreo.Values["dest"].ToString();
             finalText.Text = str;
         }
     }
@@ -63,7 +63,7 @@ public partial class Page1 : System.Web.UI.Page
 
         }
 
-        HttpContext.Current.Session["source"] = "BOM - DEL";// TextBox1.Text;
+        HttpContext.Current.Session["source"] = TextBox1.Text;
        
         oreo.Values["dest"] = TextBox2.Text;
         Response.Cookies.Add(oreo);
