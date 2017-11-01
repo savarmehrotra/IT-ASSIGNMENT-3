@@ -25,7 +25,7 @@ public partial class Page1 : System.Web.UI.Page
 
         if(DDLAjax1.SelectedIndex == 0)
         {
-            comm = new SqlCommand("SELECT * FROM Flights WHERE Src=@src AND Dest=@dest AND class=@class AND Dept_time=@dept",conn);
+            comm = new SqlCommand("SELECT * FROM Flights WHERE Src=@src AND Dest=@dest AND Class=@class AND Departure=@dept", conn);
             comm.Parameters.AddWithValue("@src", TextBox1.Text);
             comm.Parameters.AddWithValue("@dest", TextBox2.Text);
             comm.Parameters.AddWithValue("@class", RadioButtonList1.Items[RadioButtonList1.SelectedIndex].Text);
@@ -35,7 +35,7 @@ public partial class Page1 : System.Web.UI.Page
         }
         else if(DDLAjax1.SelectedIndex == 1)
         {
-            comm = new SqlCommand("SELECT * FROM Train WHERE src=@src AND dest=@dest AND class=@class AND Dept_time=@dept", conn);
+            comm = new SqlCommand("SELECT * FROM Train WHERE src=@src AND dest=@dest AND class=@class AND Departure=@dept", conn);
             comm.Parameters.AddWithValue("@src", TextBox1.Text);
             comm.Parameters.AddWithValue("@dest", TextBox2.Text);
             comm.Parameters.AddWithValue("@class", RadioButtonList1.Items[RadioButtonList1.SelectedIndex].Text);
@@ -45,7 +45,7 @@ public partial class Page1 : System.Web.UI.Page
         }
         else
         {
-            comm = new SqlCommand("SELECT * FROM Bus WHERE src=@src AND dest=@dest AND class=@class AND dept_time=@dept", conn);
+            comm = new SqlCommand("SELECT * FROM Bus WHERE src=@src AND dest=@dest AND class=@class AND Departure=@dept", conn);
             comm.Parameters.AddWithValue("@src", TextBox1.Text);
             comm.Parameters.AddWithValue("@dest", TextBox2.Text);
             comm.Parameters.AddWithValue("@class", RadioButtonList1.Items[RadioButtonList1.SelectedIndex].Text);
