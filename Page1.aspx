@@ -56,6 +56,7 @@
         <ContentTemplate>
             <br />
             <br />
+            <asp:Label ID="finalText" runat="server" Text=""  Style="text-align:center"></asp:Label><br /><br />
             <asp:GridView ID="GridView1" runat="server" style="margin-left: 210px">
             </asp:GridView>
         </ContentTemplate>

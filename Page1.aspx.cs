@@ -9,9 +9,18 @@ using System.Data.SqlClient;
 
 public partial class Page1 : System.Web.UI.Page
 {
+    HttpCookie oreo = new HttpCookie("oreo");
+    
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (IsPostBack)
+        {
+           
+            string str = HttpContext.Current.Session["source"].ToString();
+            //if(oreo.Values["dest"] != null)
+              //  str += oreo.Values["dest"].ToString();
+            finalText.Text = str;
+        }
     }
 
     protected void Button1_Click(object sender, EventArgs e)
@@ -53,6 +62,11 @@ public partial class Page1 : System.Web.UI.Page
 
 
         }
+
+        HttpContext.Current.Session["source"] = "BOM - DEL";// TextBox1.Text;
+       
+        oreo.Values["dest"] = TextBox2.Text;
+        Response.Cookies.Add(oreo);
 
         GridView1.DataSource = comm.ExecuteReader();
         GridView1.DataBind();
